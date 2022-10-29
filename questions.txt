@@ -1,0 +1,3 @@
+Co to jest adres ip (A- IP, B- IP, C- IP, D- IP) ?
+Co to jest adres MAC(A- IP, B- IP, C- IP, D- IP) ?
+Czy Istnieje Ipv7(A- IP, B- IP, C- IP, D- IP) ?

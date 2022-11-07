@@ -114,6 +114,6 @@ int main()
 		transform(repeat.begin(), repeat.end(), repeat.begin(), ::tolower);
 
 	} while (repeat == "t");
-	cout << "\nPowtorzyłes test" << countRepeat << " raz/razy";
+	cout << "\nPowtorzyłes test " << countRepeat << " raz/razy";
 	return 0;
 }

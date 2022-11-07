@@ -1,3 +1,3 @@
-Co to jest adres ip (A- IP, B- IP, C- IP, D- IP) ?
-Co to jest adres MAC(A- IP, B- IP, C- IP, D- IP) ?
-Czy Istnieje Ipv7(A- IP, B- IP, C- IP, D- IP) ?
+Co to jest adres IP? (A - Numer identyfikacyjny nadawany komputerom lub innym urządzeniom nie łączącym się z siecią, B - Numer identyfikacyjny nadawany komputerom lub innym urządzeniom łączącym się z siecią, C - Adres przydawany urzędzeniom lub technologii, D - Numer wykorzystywany w transferze informacji)
+Co to jest adres MAC? (A - Unikalny identyfikator sprzętu sieciowemu przez producenta, B - Identyfikator sprzętu lokalnego, C- Identyfikator publiczny sieci sprzętu, D- Unikalny identyfikator narzędzi wykorzystywanych w sprzęcie)
+Czy istnieje Ipv7? (T/N)

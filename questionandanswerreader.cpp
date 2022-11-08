@@ -11,27 +11,36 @@
 #include <ctime>
 #include "questionandanswerreader.h"
 #include <list>
+#include <Windows.h>
+#include <locale>
+#include <codecvt>
+
 
 using namespace std;
 
-inline pair<vector<string>, int> getFileData(string fileName) {
+ inline pair<vector<wstring>, int> getFileData(string fileName) {
 	string questions;
 	int lineNumber = 0;
 
-	ifstream questionStream(fileName);
-	string lineText;
-	list<string> lines;
+	wifstream questionStream(fileName);
+	wchar_t buffer[1024];
+	list<wstring> lines;
+	std::locale utf8_locale(std::locale(), new std::codecvt_utf8<wchar_t>);
+	questionStream.imbue(utf8_locale);
+
 	if (questionStream.is_open()) {
-		while (getline(questionStream, lineText)) {
-			lines.push_back(lineText);
+		while (questionStream.good()) {
+			questionStream.getline(buffer, 1024);
+			wstring ws(buffer);
+			lines.push_back(ws);
 			lineNumber++;
 		}
 
 		questionStream.close();
 	}
-	
-	vector<string> vectorLines(lines.begin(), lines.end());
-	return pair<vector<string>, int>(vectorLines, lineNumber);
+
+	vector<wstring> vectorLines(lines.begin(), lines.end());
+	return pair<vector<wstring>, int>(vectorLines, lineNumber);
 }
 inline vector<int> getRandomNumbers(int size) {
 	list<int> availableNumbers; //tablica na wyniki.
@@ -49,44 +58,51 @@ inline vector<int> getRandomNumbers(int size) {
 }
 void centerify_output(string str, int num_cols) {
 
-    int padding_left = (num_cols - 3) - (str.size() );
+	int padding_left = (num_cols - 3) - (str.size());
 
-    for(int i = 0; i < padding_left; ++i) cout << ' ';
-cout << str;
+	for (int i = 0; i < padding_left; ++i) cout << ' ';
+	cout << str;
 }
 int main()
 {
-	setlocale(LC_CTYPE, "Polish");
-	 std::vector<std::string> lines = {
-        "--------------------------------",
-        "|                              |",
-        "|                              |",
-        "|       Tolopogie sieci        |",
-        "|          Test/Quiz           |",
-        "|                              |",
-        "|                              |",
-        "--------------------------------",
-    };
+	SetConsoleOutputCP(65001);
+	setvbuf(stdout, nullptr, _IOFBF, 1000);
 
-    int num_cols = 100;
-    cout << endl;
-    for(int i = 0; i < lines.size(); ++i) {
-        centerify_output(lines[i], num_cols);
-        cout << endl;
-    }
-    cout << endl;
+	ios_base::sync_with_stdio(false);
+	wcin.imbue(locale("pl_PL.UTF-8"));
+	wcout.imbue(locale("pl_PL.UTF-8"));
+
+	std::vector<std::string> lines = {
+	   "--------------------------------",
+	   "|                              |",
+	   "|                              |",
+	   "|       Tolopogie sieci        |",
+	   "|          Test/Quiz           |",
+	   "|                              |",
+	   "|                              |",
+	   "--------------------------------",
+	};
+
+	int num_cols = 80;
+	cout << endl;
+	for (int i = 0; i < lines.size(); ++i) {
+		centerify_output(lines[i], num_cols);
+		cout << endl;
+	}
+	cout << endl;
 	float wynik = 0.0;
 	string answer;
 	float suma = 0.0;
 	string questions;
 	string repeat;
-	string userAnswer = "";
+	wstring userAnswer;
+	//cout << "\n\t\t\t\t\t|| QUIZ Z ZAKRESU TOPOLOGII SIECI ||\n";
 	//"Z jakiego pliku chcesz otworzyć pytania"
 	questions = "questions.txt";
-	pair<vector<string>, int> questionData = getFileData(questions);
+	pair<vector<wstring>, int> questionData = getFileData(questions);
 	//"Z jakiego pliku chcesz otworzyć odpowiedzi"
 	answer = "answers.txt";
-	pair<vector<string>, int> answerData = getFileData(answer);
+	pair<vector<wstring>, int> answerData = getFileData(answer);
 
 	int questionSize = (questionData.second);
 	int forLoopInc = 0;
@@ -118,9 +134,10 @@ int main()
 
 			randomNumber2 = availableNumbers2[i];
 
-			cout << "\nPytanie " << forLoopInc << ": " << questionData.first[question_numbers[randomNumber2]];
+			cout << "\nPytanie " << forLoopInc << ": ";
+			wcout << questionData.first[question_numbers[randomNumber2]];
 			cout << "\nOdpowiedź: \n";
-			cin >> userAnswer;
+			wcin >> userAnswer;
 			transform(userAnswer.begin(), userAnswer.end(), userAnswer.begin(), ::tolower);
 			transform(answerData.first[question_numbers[randomNumber2]].begin(),
 				answerData.first[question_numbers[randomNumber2]].end(), answerData.first[question_numbers[randomNumber2]].begin(), ::tolower);
@@ -129,7 +146,7 @@ int main()
 				wynik++;
 			}
 			else {
-				cout << "\Zła odpowiedz!\n";
+				cout << "\nZła odpowiedz!\n";
 			}
 		}
 		auto end = chrono::steady_clock::now();

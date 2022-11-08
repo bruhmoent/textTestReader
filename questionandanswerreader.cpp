@@ -81,11 +81,10 @@ int main()
 	string questions;
 	string repeat;
 	string userAnswer = "";
-	//cout << "\n\t\t\t\t\t|| QUIZ Z ZAKRESU TOPOLOGII SIECI ||\n";
-	//"Z jakiego pliku chcesz otworzyÄ‡ pytania"
+	//"Z jakiego pliku chcesz otworzyć pytania"
 	questions = "questions.txt";
 	pair<vector<string>, int> questionData = getFileData(questions);
-	//"Z jakiego pliku chcesz otworzyÄ‡ odpowiedzi"
+	//"Z jakiego pliku chcesz otworzyć odpowiedzi"
 	answer = "answers.txt";
 	pair<vector<string>, int> answerData = getFileData(answer);
 

@@ -1,4 +1,4 @@
-﻿#include <fstream>
+#include <fstream>
 #include <iostream>
 #include <string>
 #include <stdlib.h>
@@ -11,7 +11,9 @@
 #include <ctime>
 #include "questionandanswerreader.h"
 #include <list>
+
 using namespace std;
+
 inline pair<vector<string>, int> getFileData(string fileName) {
 	string questions;
 	int lineNumber = 0;
@@ -45,16 +47,40 @@ inline vector<int> getRandomNumbers(int size) {
 
 	return availableNumbers2;
 }
+void centerify_output(string str, int num_cols) {
 
+    int padding_left = (num_cols - 3) - (str.size() );
+
+    for(int i = 0; i < padding_left; ++i) cout << ' ';
+cout << str;
+}
 int main()
 {
+	setlocale(LC_CTYPE, "Polish");
+	 std::vector<std::string> lines = {
+        "--------------------------------",
+        "|                              |",
+        "|                              |",
+        "|       Tolopogie sieci        |",
+        "|          Test/Quiz           |",
+        "|                              |",
+        "|                              |",
+        "--------------------------------",
+    };
+
+    int num_cols = 100;
+    cout << endl;
+    for(int i = 0; i < lines.size(); ++i) {
+        centerify_output(lines[i], num_cols);
+        cout << endl;
+    }
+    cout << endl;
 	float wynik = 0.0;
 	string answer;
 	float suma = 0.0;
 	string questions;
 	string repeat;
 	string userAnswer = "";
-	setlocale(LC_CTYPE, "Polish");
 	//"Z jakiego pliku chcesz otworzyć pytania"
 	questions = "questions.txt";
 	pair<vector<string>, int> questionData = getFileData(questions);
@@ -99,21 +125,21 @@ int main()
 			transform(answerData.first[question_numbers[randomNumber2]].begin(),
 				answerData.first[question_numbers[randomNumber2]].end(), answerData.first[question_numbers[randomNumber2]].begin(), ::tolower);
 			if (userAnswer == answerData.first[question_numbers[randomNumber2]]) {
-				cout << "\nDobra odpowiedz!\n";
+				cout << "\nDobra odpowiedź!\n";
 				wynik++;
 			}
 			else {
-				cout << "\nZła odpowiedz!\n";
+				cout << "\Zła odpowiedz!\n";
 			}
 		}
 		auto end = chrono::steady_clock::now();
 		suma = (wynik * 100) / questionSize;
-		cout << "\nUzyskałeś: " << suma << "%." << "Test rozwiązałeś w: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sekund.";
+		cout << "\nUzyskałeś: " << suma << "%." << " Test rozwiązałeś w: " << chrono::duration_cast<chrono::seconds>(end - start).count() << " sekund.";
 		cout << "\nCzy chcesz powtorzyć test? (T/N)\n";
 		cin >> repeat;
 		transform(repeat.begin(), repeat.end(), repeat.begin(), ::tolower);
 
 	} while (repeat == "t");
-	cout << "\nPowtorzyłes test " << countRepeat << " raz/razy";
+	cout << "\nPowtórzyłeś test " << countRepeat << " raz/razy";
 	return 0;
 }

@@ -5,4 +5,6 @@ Punkt-do-punktu to: (A - Typ komunikacyjny polegający na łączeniu jednym kana
 Czy do podstawowych topologii sieci należy topologia hierarchiczna? (T/N)
 Metodą kontroli dostępu rozproszonego jest: (A - komunikacyjny system łączeń, B - przepytywanie, C - perypetowanie, D - metoda gwiazd)
 W jakiej topologii każdy host posiada własne połączenia ze wszystkimi pozostałymi hostami: (A - siateczki, B - topologia kwadratowa, C - topologia DDOH, D - siatki)
-Najbardziej odporną siecią na uszkodzenia jest sieć o topologii (A - pierścienia, B - siatki, C - gwiazdy, D - magistrali):
+Najbardziej odporną siecią na uszkodzenia jest sieć o topologii (A - pierścienia, B - siatki, C - gwiazdy, D - magistrali)
+Metodą kontroli dostępu losowego nie jest: (CSMA/CD, pierścień szczelinowy, CSMA/CB, wtrącanie rejestru)
+W jakiej topologii wszystkie komputery są podłączone do pewnego centralnego punktu? (A - gwiazdy, B - magistrali, C - pierścienia, D - siatki)

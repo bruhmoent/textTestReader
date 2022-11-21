@@ -18,3 +18,8 @@ c
 t
 a
 n
+b
+c
+n
+a
+c

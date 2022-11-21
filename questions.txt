@@ -18,3 +18,8 @@ W grafice wektorowej obraz jest rysowany za pomocą: ( A - pikseli, B - formatu 
 Czy plik .SWF może zawierać grafikę wektorową? (T/N)
 Od czego skrótem jest plik .PNG: ( A - Portable Network Graphics, B - Portable New Graphics, C - Pixel Network Graphics, D - Portable NIK Geometry)
 Czy grafika wektorowa jest lepszej jakości, niż pliki .PNG? (T/N)
+Jakie barwy uznajemy za chromatyczne? ( A - barwy szarości, B - odcień, będący dominantą barwy, C - barwy aukustalne, D - W 2001 roku uznany przez Instytut Rozwoju i Procesów wewnętrznych podział barw w znikomym zakresie RBG.)
+Rozszerzenie plików charakterystyczne dla programu Corel, Photoshop to ( A - .PTSD, B - .PASD, C - .PSD, D - .PADD )
+Grafika wektorowa nie występuje w programie GIMP - (T/N)
+Co to jest krzywa Beziera? ( A - Krzywa posiadająca segmenty, węzły i punkty kontrolne, B - Prosta  posiadająca segmenty, węzły i punkty kontrolne, Krzywa mająca na celu określić dystans między punktami A i B, C - Krzywa w photoshop, D - Krzywa mająca na celu podzielenie danej części ekranu na segmenty)
+Pełny skrót od palety barw CMYK to ( A - Calibrated Manipulation of Yellow Constrasts, B - Calibrated Yellow Key Mode, C - cyan, magenta, yellow, key colour, D - cyan, magnat, yellow, key colour)

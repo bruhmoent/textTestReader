@@ -23,3 +23,8 @@ c
 n
 a
 c
+b
+a
+a
+c
+t

@@ -76,7 +76,7 @@ int main()
 	   "--------------------------------",
 	   "|                              |",
 	   "|                              |",
-	   "|       Tolopogie sieci        |",
+	   "|         Informatyka          |",
 	   "|          Test/Quiz           |",
 	   "|                              |",
 	   "|                              |",
